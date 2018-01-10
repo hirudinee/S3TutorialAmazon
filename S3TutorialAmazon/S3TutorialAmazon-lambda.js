@@ -15,7 +15,7 @@ exports.handler = function (event, context, callback) {
     console.log("Source Bucket key"+srcKey);
 
     //Get uploade Image type
-    var typeMatch = src.match(/\.([^.]*)$/);
+    var typeMatch = srcKey.match(/\.([^.]*)$/);
 
     //No image type to determine
     if(!typeMatch){
