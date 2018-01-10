@@ -10,4 +10,6 @@ exports.handler = function(event, context, callback){
     //Get source key
     var srcKey = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g,""));
 
+    console.log(srcBucket + srcKey);
+
 }
