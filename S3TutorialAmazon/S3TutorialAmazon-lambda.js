@@ -26,7 +26,7 @@ exports.handler = function (event, context, callback) {
 
     //Image type is not supported
     var imageType = typeMatch[1];
-    if (imageType != "jpg" && imageType != "png") {
+    if (imageType != "jpg"/* && imageType != "png"*/) {
         callback('Unsupported image type: ${imageType}');
         return;
     }
