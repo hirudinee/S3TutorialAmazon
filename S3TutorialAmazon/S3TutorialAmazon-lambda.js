@@ -14,6 +14,23 @@ exports.handler = function (event, context, callback) {
     console.log("Source Bucket name"+srcBucket);
     console.log("Source Bucket key"+srcKey);
 
+    //Get uploade Image type
+    var imageType = src.match(/\.([^.]*)$/);
+
+    //No image type to determine
+    if(!imageType){
+        callback("Could not determine the image type");
+        return;
+    }
+    console.log("Image type"+imageType);
+
+    //Image type is not supported
+    var imageType = typeMatch[1];
+    if (imageType != "jpg" && imageType != "png") {
+        callback('Unsupported image type: ${imageType}');
+        return;
+    }
+    
     s3.putObject({
         "Body": "data",
         "Bucket": "hiru.sampleresized",
